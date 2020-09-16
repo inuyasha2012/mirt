@@ -909,8 +909,7 @@ ESTIMATION <- function(data, model, group, itemtype = NULL, guess = 0, upper = 1
         }
     }
     #missing stats for MHRM
-    if(opts$method %in% c('MHRM', 'MIXED', 'SEM') &&
-       (!opts$logLik_if_converged || !(!ESTIMATE$converge && opts$logLik_if_converged))){
+    if(opts$method %in% c('MHRM', 'MIXED', 'SEM') && opts$logLik_if_converged){
         logLik <- G2 <- SElogLik <- 0
         if(opts$draws > 0L){
             if(opts$verbose) cat("\nCalculating log-likelihood...\n")
